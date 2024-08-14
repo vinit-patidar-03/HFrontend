@@ -78,7 +78,7 @@ const ClassRoom = () => {
     return (
         <>
             {user.role === "P" && <Navbar user={user} />}
-            {!user?.classRoom && <h1 className='text-center text-2xl mt-5'>You are not assigned to any ClassRoom. Please Contact Principal</h1>}
+            {(!user?.classRoom && user.role !== "P") && <h1 className='text-center text-2xl mt-5'>You are not assigned to any ClassRoom. Please Contact Principal</h1>}
             {(roomDetails && user) &&
                 <div>
                     <div className="bg-white overflow-hidden shadow rounded-lg border mx-3 mt-3">

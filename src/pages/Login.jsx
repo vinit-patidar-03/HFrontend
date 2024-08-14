@@ -1,11 +1,15 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom"
 
 const Login = () => {
     const [details, setDetails] = useState({ email: "", password: "" });
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (localStorage.getItem("HeliverseToken")) navigate('/');
+    }, [])
 
     const handleChange = (e) => setDetails({ ...details, [e.target.name]: e.target.value });
 
