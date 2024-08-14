@@ -133,6 +133,9 @@ const ClassRoom = () => {
                                         {roomDetails.days.length > 0 &&
                                             roomDetails.days.map(day => <span key={day} className='p-1 sm:mr-2 bg-gray-200 rounded-lg'>{day}</span>)
                                         }
+                                        {
+                                            roomDetails.days.length === 0 && "NA"
+                                        }
                                     </dd>
                                 </div>
                                 {user?.role === "P" &&
