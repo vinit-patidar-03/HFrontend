@@ -34,6 +34,9 @@ const AssignRoom = ({ allusers, setStatus, role, id, setRoomDetails, setAllTeach
                             </div>
                         ))
                     }
+                    {
+                        allusers.length === 0 && <h2 className='text-center'>No Users Found</h2>
+                    }
                 </div>
             </div>
         </>
