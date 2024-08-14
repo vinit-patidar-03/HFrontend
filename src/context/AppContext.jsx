@@ -16,13 +16,17 @@ const AppContext = ({ children }) => {
     }, [navigate])
 
     const getUser = async () => {
-        const res = await axios.get("https://h-backend-three.vercel.app/api/v1/user", {
-            headers: {
-                "Content-Type": "application/json",
-                "authToken": localStorage.getItem("HeliverseToken")
-            }
-        })
-        setUser(res.data.user);
+        try {
+            const res = await axios.get("https://h-backend-three.vercel.app/api/v1/user", {
+                headers: {
+                    "Content-Type": "application/json",
+                    "authToken": localStorage.getItem("HeliverseToken")
+                }
+            })
+            setUser(res.data.user);
+        } catch (error) {
+            throw new Error("Internal Server Error");
+        }
     }
     return (
         <Context.Provider value={{ user, setUser }}>

@@ -19,7 +19,7 @@ const ClassRoom = () => {
     const [roomStudents, setRoomStudents] = useState([]);
 
     useEffect(() => {
-        if (localStorage.getItem("HeliverseToken")) {
+        if ((localStorage.getItem("HeliverseToken") && user?.role === "P") || user?.classRoom !== null) {
             fetchClassRoom()
             fetchUsers()
         }
@@ -78,7 +78,8 @@ const ClassRoom = () => {
     return (
         <>
             {user.role === "P" && <Navbar user={user} />}
-            {roomDetails &&
+            {!user?.classRoom && <h1 className='text-center text-2xl mt-5'>You are not assigned to any ClassRoom. Please Contact Principal</h1>}
+            {(roomDetails && user) &&
                 <div>
                     <div className="bg-white overflow-hidden shadow rounded-lg border mx-3 mt-3">
                         <div className="px-4 py-5 sm:px-6">

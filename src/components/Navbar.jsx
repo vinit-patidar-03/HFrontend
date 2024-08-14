@@ -23,7 +23,7 @@ const Navbar = ({ user }) => {
                     {user && <img className="h-8" src={user?.picture} alt="image" />}
                 </div>
                 {isOpen && <div className=" w-32 h-32 absolute top-24 z-10 right-3 bg-white flex justify-center items-center rounded-lg shadow-[0_0px_3px_rgba(0,0,0,0.3)]">
-                    <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Logout</button>
+                    <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={logout}>Logout</button>
                 </div>
                 }
             </div>
